@@ -1,10 +1,12 @@
 package OOP_all.seminars.seminar3;
 
-public class Circle extends Figure implements CircleLenght{
+public final class Circle extends Figure implements CircleLenght{
 
     private double radius;
 
     public Circle(double radius){
+
+        if(radius < 0) throw new IllegalArgumentException("Radius cannot be negative");
         this.radius = radius;
     }
     @Override
