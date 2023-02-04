@@ -20,10 +20,14 @@ package OOP_all.seminars.seminar3;
 public class Program {
 
     public static void main(String[] args) {
-        
-    MyCollection.add(new Rectangle(3, 4));
-    MyCollection.add(new Square(3));
-    MyCollection.add(new Circle(4));
+
+        Square square = new Square(4);
+        Rectangle rectangle = new Rectangle(3, 4);
+        Circle circle = new Circle(3);
+        Triangle triangle = Triangle.newBuilder(5, 10, 15);
+        Figure[] figus = new Figure[]{square,rectangle,circle,triangle};
+        MyCollection my = new MyCollection(figus);
+        MyCollection.sortFig();
 
 
 

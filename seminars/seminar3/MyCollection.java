@@ -4,8 +4,16 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 public class MyCollection{
-    public static Figure[] figures=new Figure[10];
-    private static int size=0;
+    private static Figure[] figures;
+    private static int size;
+
+    public MyCollection(Figure[] figures){
+
+        MyCollection.figures = figures;
+        MyCollection.size = figures.length;
+        
+
+    }
 
     public static void add(Figure fig){
         figures[size] = fig;
@@ -125,6 +133,8 @@ public class MyCollection{
         for(int i =0; i < size; i++){
             System.out.println(figures[i].getArea());
         }
+
+   
     }
 
 
