@@ -1,13 +1,17 @@
 package OOP_all.seminars.seminar3;
-public class MyCollection implements Comparable<Figure>{
-    public static Figure[] figures = new Figure[10];
-    public static int size = 0;
+
+import java.util.Arrays;
+import java.util.Comparator;
+
+public class MyCollection{
+    public static Figure[] figures=new Figure[10];
+    private static int size=0;
 
     public static void add(Figure fig){
         figures[size] = fig;
         size++;
         if(size == figures.length){
-            Figure[] newFigures = new Figure[figures.length*2];
+            Figure[] newFigures = new Figure[figures.length+1];
             for(int i = 0; i < figures.length;i++){
                 newFigures[i]= figures[i];
             }
@@ -52,7 +56,7 @@ public class MyCollection implements Comparable<Figure>{
         }else return null;
     }
 
-    public static void getAllInfo(){
+    public static void getAllInfo() {
         for(Figure fig : figures){
             if(fig instanceof Perimetr){
                 System.out.printf("Perimetr %s : ",fig.getClass().getSimpleName());
@@ -80,11 +84,59 @@ public class MyCollection implements Comparable<Figure>{
 
     }
 
-    @Override
-    public int compareTo(Figure o) {
-        // TODO Auto-generated method stub
-        return 0;
+    public static void replaceFig(Figure oldVal,Figure newVal){
+        if(oldVal == null){
+            for(int i = 0; i < size; i++){
+                if(figures[i] == null){
+                    figures[i] = newVal;
+                    break;
+                }
+            }
+        }else{
+            for(int i = 0; i < size; i++){
+                if(oldVal.equals(figures[i])){
+                    figures[i] = newVal;
+                    break;
+                }
+            }
+        }
     }
+
+    // public static void sortFig(){
+    //     List<Figure> newFig = new ArrayList<>(Arrays.asList(figures));
+    //     for(int i = 0 ; i < newFig.size(); i++){
+
+    //     }
+    // }
+
+    public static void sortFig(){
+        Arrays.sort(figures,new Comparator<Figure>() {
+
+            @Override
+            public int compare(Figure o1, Figure o2) {
+               if(o1.getArea() == o2.getArea()) return 0;
+               else if(o1.getArea() > o2.getArea()) return 1;
+               else return -1;
+
+            }
+            
+        });
+
+        for(int i =0; i < size; i++){
+            System.out.println(figures[i].getArea());
+        }
+    }
+
+
+    public static Comparator<Figure> COMPARE_BY_AREA = new Comparator<Figure>() {
+
+        @Override
+        public int compare(Figure o1, Figure o2) {
+            return Integer.compare(o1.getArea(), o2.getArea());
+        }
+        
+    };
+
 
 
 

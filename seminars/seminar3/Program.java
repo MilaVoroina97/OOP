@@ -1,6 +1,8 @@
 package OOP_all.seminars.seminar3;
 
-import java.util.Collection;
+
+
+
 
 // Написать программу на языках С# или С++, в которой идёт со следующими геометрическими фигурами:
 // 1.Треугольник
@@ -18,45 +20,12 @@ import java.util.Collection;
 public class Program {
 
     public static void main(String[] args) {
-        // try{
-        //     ArrayList<Figure> figures = new ArrayList<>();
-        //     Circle circle = new Circle(5);
-        //     Rectangle rectangle = new Rectangle(5, 10);
-        //     Triangle triangle = Triangle.newBuilder(1, 2, 3);
-        //     Square square = new Square(4);
-    
-        //     figures.add(circle);
-        //     figures.add(rectangle);
-        //     figures.add(triangle);
-        //     figures.add(square);
-    
-        //     for(Figure fig : figures){
-        //         if(fig instanceof Perimetr){
-        //             System.out.printf("Perimetr %s : ",fig.getName());
-        //             System.out.println(((Perimetr)fig).getPerimetr());
-        //         } 
-        //         if(fig instanceof Circle){
-    
-        //             System.out.printf("Circle length : ");
-        //             System.out.println(((Circle)fig).getCircleLenght());
-        //         }
-    
-        //         System.out.printf("Area %s : ", fig.getName());
-        //         System.out.println(fig.getArea());
-        //     }
-        // }catch (IllegalArgumentException e){
-        //     e.printStackTrace();
-        // }
-
-        MyCollection.add(new Circle(4));
-        MyCollection.add(Triangle.newBuilder(5, 10, 15));
-        MyCollection.add(new Rectangle(3, 4));
-        MyCollection.add(new Square(8));
-        // MyCollection.replaceFig(0, new Rectangle(1,2));
-        MyCollection.getAllInfo();
-     
-
         
+    MyCollection.add(new Rectangle(3, 4));
+    MyCollection.add(new Square(3));
+    MyCollection.add(new Circle(4));
+
+
 
   
     }

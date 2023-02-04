@@ -15,9 +15,9 @@ public final class Circle extends Figure implements CircleLenght{
     }
 
     @Override
-    public double getArea() {
+    public int getArea() {
 
-        return Math.PI * Math.pow(this.radius,2);
+        return (int) (Math.PI * Math.pow(this.radius,2));
     }
 
     public String getName(){

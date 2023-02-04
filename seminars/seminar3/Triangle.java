@@ -17,9 +17,9 @@ public final class Triangle extends Polygon{
 
 
     @Override
-    public double getArea() {
-        double polyPerimetr = (this.sides[0] + this.sides[1] + this.sides[2])/2;
-        double res = Math.sqrt(polyPerimetr * (polyPerimetr - this.sides[0])*(polyPerimetr - this.sides[1])*(polyPerimetr - this.sides[2]));
+    public int getArea() {
+        int polyPerimetr = (int) ((this.sides[0] + this.sides[1] + this.sides[2])/2);
+        int res = (int) Math.sqrt(polyPerimetr * (polyPerimetr - this.sides[0])*(polyPerimetr - this.sides[1])*(polyPerimetr - this.sides[2]));
         return res;
     }
 

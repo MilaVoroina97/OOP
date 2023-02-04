@@ -7,8 +7,8 @@ public class Rectangle extends Polygon{
     }
 
     @Override
-    public double getArea() {
-        return this.sides[0] * this.sides[1];
+    public int getArea() {
+        return (int) (this.sides[0] * this.sides[1]);
     }
 
     public String getName(){
