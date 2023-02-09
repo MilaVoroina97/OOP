@@ -7,22 +7,30 @@ import java.util.UUID;
 
 public class Game {
     public static void main(String[] args) {
-        System.out.println("Ex001_Game");
-
-        Team team1 = new Team("Воробушки");
-        team1.add(Gb.CreateEmployee(0));
-        team1.add(Gb.CreateEmployee(0));
+        System.out.println("Ex003_Game");
+        Team<Intern> team1 = new Team<>("Воробушки");
+        team1.add(Gb.CreateIntern());
+        team1.add(Gb.CreateIntern());
         System.out.println(team1);
 
-        Team team2 = new Team("Хлебушки ");
-        team2.add(Gb.CreateEmployee(0));
-        team2.add(Gb.CreateEmployee(0));
-        team2.add(Gb.CreateEmployee(1));//
+        Team<Intern> team2 = new Team<>("Хлебушки ");
+        team2.add(Gb.CreateIntern());
+        team2.add(Gb.CreateIntern());
+        // team2.add(Gb.CreateMiddle());
         System.out.println(team2);
 
-        var o = new Olympiad(team1, team2);
+        var o = new Olympiad<Intern>(team1, team2);
         o.start();
+        
+        // #region
+        // System.out.println("st1 vs st2");
+        // var st1 = new Team<String>("string team 1");
+        // var st2 = new Team<String>("string team 1");
 
+        // Olympiad<String> o1 = new Olympiad<>(st1, st2);
+        // o1.start();
+
+        // #endregion
     }
 }
 
@@ -70,20 +78,20 @@ class Principal extends Programmer {
     }
 }
 
-class Team {
+class Team<T extends Programmer> {
     private String name;
-    private List<Programmer> programmers;
+    private List<T> programmers;
 
     public Team(String name) {
         this.name = name;
-        this.programmers = new ArrayList<>();
+        programmers = new ArrayList<>();
     }
 
     public String getName() {
         return name;
     }
 
-    public void add(Programmer p) {
+    public void add(T p) {
         programmers.add(p);
     }
 
@@ -94,12 +102,12 @@ class Team {
 
 }
 
-class Olympiad {
+class Olympiad<T extends Programmer> {
 
-    Team team1, team2;
+    Team<T> team1, team2;
     Random r = new Random();
 
-    public Olympiad(Team t1, Team t2) {
+    public Olympiad(Team<T> t1, Team<T> t2) {
         team1 = t1;
         team2 = t2;
     }
@@ -112,16 +120,17 @@ class Olympiad {
 
 class Gb {
 
-    public static Programmer CreateEmployee(int i) {
-        switch (i) {
-            case 0:
-                return new Intern();
-            case 1:
-                return new Middle();
-            default:
-                return new Principal();
-        }
+    public static Intern CreateIntern() {
+        return new Intern();
     }
 
+    public static Middle CreateMiddle() {
+        return new Middle();
+    }
+
+    public static Principal CreatePrincipal() {
+        return new Principal();
+    }
 }
+
 
