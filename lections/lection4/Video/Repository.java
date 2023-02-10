@@ -1,10 +1,7 @@
 package OOP_all.lections.lection4.Video;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-
-import OOP_all.seminars.seminar2.seminarPlanet.P;
 
 public class Repository <T extends Content> {
 
@@ -34,6 +31,15 @@ public class Repository <T extends Content> {
         for(int i = 0; i < temp.count(); i++){
             if(temp.get(i) == null) System.out.println("null");;
             this.addElem(temp.get(i));
+        }
+    }
+
+    public void showAll(Repository<? extends Content> rep){
+
+        for(Object elem : rep.ds){
+            if(elem instanceof VIdeoContent) System.out.println(((VIdeoContent)elem).toString());
+            if(elem instanceof AudioContent) System.out.println(((AudioContent)elem).toString());
+
         }
     }
 

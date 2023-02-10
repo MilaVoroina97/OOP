@@ -1,11 +1,10 @@
 package OOP_all.lections.lection4.Video;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 
-import OOP_all.seminars.seminar2.seminarPlanet.P;
+
 
 public class Main {
 
@@ -43,18 +42,8 @@ public class Main {
             System.out.println(pTchaikovsky.get(i));
         }
 
-        Collection<Repository<? extends Content>> col = new ArrayList<>(Arrays.asList(pTchaikovsky,mGlinka,youtubeVideo));
-        showAll(col);
-
     }
 
-    private static void showAll(Collection<Repository<? extends Content>> col) {
 
-        for(Repository<? extends Content> c : col){
 
-            System.out.println(c);
-        }
-    }
-
-    
 }
