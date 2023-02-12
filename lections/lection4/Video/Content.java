@@ -8,7 +8,7 @@ public abstract class Content {
     }
 
     protected Content(){
-        this.name ="-_-";
+        this.name = "-_-";
     }
 
     @Override
