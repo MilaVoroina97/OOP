@@ -4,11 +4,11 @@ public class Contact implements Comparable<Contact>{
 
     public String name;
     public String lastName;
-    public int numberPhone;
-    public String company;
+    public String numberPhone;
+    // public String company;
     public String description;
 
-    public Contact(String firstName, String lastName, int numberPhone,String company,String description) {
+    public Contact(String firstName, String lastName, String numberPhone,String description) {
         this.name = firstName;
         this.lastName = lastName;
         this.numberPhone = numberPhone;
@@ -18,7 +18,7 @@ public class Contact implements Comparable<Contact>{
     @Override
     public int compareTo(Contact o) {
 
-        return 0;
+        return Integer.compare(this.numberPhone.length(), o.numberPhone.length());
     }
 
     @Override

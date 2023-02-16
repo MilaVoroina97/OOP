@@ -4,10 +4,10 @@ public class Presenter {
     View v; 
     Model m;
 
-    public Presenter(View v, Model m){
+    public Presenter(View v, Model pathDb){
 
         this.v = v;
-        this.m = m;
+        this.m = pathDb;
     }
 
     public void buttonClick(){
